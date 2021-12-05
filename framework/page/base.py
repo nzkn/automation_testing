@@ -36,21 +36,3 @@ class Base:
 
     def _find_element_by_url(self, link: str):
         return self.driver.find_element(By.LINK_TEXT, link)
-
-    def _wait_for_element(self, xpath: str, msg='') -> WebElement:
-        return self._wait.until(presence_of_element_located(self._selector_from_xpath(xpath)), msg)
-
-    def _wait_for_element_to_be_clickable(self, xpath: str, msg='') -> WebElement:
-        return self._wait.until(element_to_be_clickable(self._selector_from_xpath(xpath)), msg)
-
-    def _wait_to_locate_text(self, xpath: str, text: str, msg=''):
-        return self._wait.until(text_to_be_present_in_element(self._selector_from_xpath(xpath), text), msg)
-
-    def _wait_to_locate_text_in_value(self, xpath: str, text: str, msg=''):
-        return self._wait.until(text_to_be_present_in_element_value((By.XPATH, xpath), text), msg)
-
-    def _validate_input(self, xpath: str, keys: str, message=''):
-        element = self._find_element_by_xpath(xpath)
-        element.clear()
-        element.send_keys(keys)
-        self._wait_to_locate_text_in_value(xpath, keys, message)
