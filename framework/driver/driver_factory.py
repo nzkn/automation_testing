@@ -20,7 +20,7 @@ class _DriverFactory:
 
     def get_web_driver(self, name: BrowserType) -> WebDriver:
         if not self.__driver:
-            self.__driver = self.__drivers[name]()
+            self.__driver = self.__drivers[name]
         return self.__driver
 
 
