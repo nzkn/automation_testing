@@ -30,11 +30,3 @@ def main_page(driver) -> MainPage:
 @fixture(scope='class')
 def shop_page(driver) -> ShopPage:
     return ShopPage(driver)
-
-
-value: int = 0
-
-
-@fixture(scope='session')
-def items_in_cart() -> int:
-    return value

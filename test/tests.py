@@ -1,14 +1,16 @@
-from framework.page.locators.main_page import Category, HouseholdSubcategory
+from framework.page.locators.main_page import Category, HouseholdSubcategory, CategoryLink, HouseholdSubcategoryLink
 from framework.page.locators.shop_page import ShopPageLocators
 
 
 class TestOrderProduct:
 
     def test_open_shop(self, main_page):
-        main_page.select_category(Category.HOUSEHOLD.value)
-        main_page.select_sub_category(HouseholdSubcategory.WASHING_MACHINES.value)
+        main_page.select_category(Category.HOUSEHOLD.value, CategoryLink.HOUSEHOLD.value)
+        main_page.select_sub_category(HouseholdSubcategory.WASHING_MACHINES.value,
+                                      HouseholdSubcategoryLink.WASHING_MACHINES.value)
         main_page.select_product('Ціни на Samsung WW90T986CSH/UA')
         main_page.click_compare()
+        main_page.scroll_to_buy()
         main_page.click_buy()
         main_page.switch_to_shop_window()
 
