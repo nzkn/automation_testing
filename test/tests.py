@@ -18,4 +18,6 @@ class TestOrderProduct:
         shop_page.click_instant_order()
         shop_page.focus_input_and_enter(ShopPageLocators.NAME_INPUT.value, 'Nazar')
         shop_page.focus_input_and_enter(ShopPageLocators.PHONE_INPUT.value, '734500500')
+        # do not uncomment following line, an order will be placed
+        # shop_page.confirm_order_info()
 

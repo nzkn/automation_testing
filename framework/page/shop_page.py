@@ -10,3 +10,7 @@ class ShopPage(Base):
     def focus_input_and_enter(self, name: str, keys: str):
         popup = self._find_element_by_id(ShopPageLocators.ORDER_POPUP.value)
         popup.find_element_by_id(name).send_keys(keys)
+
+    def confirm_order_info(self):
+        popup = self._find_element_by_id(ShopPageLocators.ORDER_POPUP.value)
+        popup.find_element_by_class_name(ShopPageLocators.CONFIRM_BUY_BTN.value).click()
